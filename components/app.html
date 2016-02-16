@@ -1,0 +1,58 @@
+<!-- Imports polymer -->
+<link rel="import" href="./../bower_components/polymer/polymer.html">
+<link rel="import" href="./button.html">
+
+<!-- Defines element markup -->
+<dom-module id="my-small-app">
+    <template>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>La mia mini app a Componenti</h1>
+          </div>
+
+          <div class="col-xs-12">
+            <custom-button data-index="0" on-tap="_changePage">Pag 1</custom-button>
+            <custom-button data-index="1" on-tap="_changePage">Pag 2</custom-button>
+            <hr>
+          </div>
+
+          <div class="col-xs-12">
+            <template is="dom-if" if="[[!page]]">
+              <my-widget></my-widget>
+            </template>
+            <template is="dom-if" if="[[page]]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio dolorum similique ab quo dolor temporibus minima, nostrum neque eveniet repudiandae optio accusantium quod, at, iusto sapiente magnam molestiae totam voluptate!</p>
+            </template>
+          </div>
+        </div>
+      </div>
+
+    </template>
+
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'my-small-app',
+
+        properties: {
+          page: {
+            type: Number,
+            value: 0
+          }
+        },
+
+        _changePage(evt){
+          evt.preventDefault;
+          var n = parseInt(evt.currentTarget.dataset.index);
+          this.page = n;
+        },
+
+        // Fires when the element was inserted into the document
+        attached: function() {
+          console.log('## Applicazione avviata')
+        }
+    });
+    </script>
+</dom-module>

@@ -1,0 +1,33 @@
+<!-- Imports polymer -->
+<link rel="import" href="./../bower_components/polymer/polymer.html">
+
+<!-- Defines element markup -->
+<dom-module id="custom-button">
+    <template>
+
+      <button class$="[[_computeClass(aspect)]]" type="button">
+        <content></content>
+      </button>
+
+    </template>
+
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'custom-button',
+
+        properties: {
+          aspect: {
+            type: String,
+            value: 'btn-default'
+          }
+        },
+
+        _computeClass(aspect){
+          var arr = ['btn', aspect];
+          return arr.join(' ');
+        }
+
+    });
+    </script>
+</dom-module>

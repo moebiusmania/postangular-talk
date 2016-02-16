@@ -1,0 +1,25 @@
+{
+  "name": "postangular-talk",
+  "homepage": "https://github.com/moebiusmania/postangular-talk",
+  "authors": [
+    "Salvatore Laisa <moebiusmania@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.2.4",
+    "bootstrap": "^3.3.6",
+    "fetch": "^0.11.0",
+    "es6-promise": "^3.1.2"
+  }
+}

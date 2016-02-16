@@ -1,0 +1,30 @@
+<!-- Imports polymer -->
+<link rel="import" href="./../bower_components/polymer/polymer.html">
+
+<!-- Defines element markup -->
+<dom-module id="display-list">
+    <template>
+
+      <ul>
+        <template is="dom-repeat" items="[[data]]">
+          <li>[[item]]</li>
+        </template>
+      </ul>
+
+    </template>
+
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'display-list',
+
+        properties: {
+          data: {
+            type: Array,
+            value: []
+          }
+        }
+
+    });
+    </script>
+</dom-module>
