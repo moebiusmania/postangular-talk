@@ -1,0 +1,44 @@
+<!-- Imports polymer -->
+<link rel="import" href="./../bower_components/polymer/polymer.html">
+<link rel="import" href="./list.html">
+<link rel="import" href="./button.html">
+
+<!-- Defines element markup -->
+<dom-module id="my-widget">
+    <template>
+      <div class="well">
+        <display-list data="[[widgetData]]"></display-list>
+        <custom-button on-click="_load" aspect="btn-primary">Load Data</custom-button>
+      </div>
+    </template>
+
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'my-widget',
+
+        properties: {
+          items: {
+            type: Number,
+            value: 10
+          },
+          widgetData: {
+            type: Array,
+            value: []
+          }
+        },
+
+        _load(evt){
+          fetch('http://jsonplaceholder.typicode.com/posts')
+            .then(function(data){
+              return data.json();
+            }.bind(this))
+            .then(function(json){
+              var arr = json.slice(0, this.items);
+              this.widgetData = arr;
+            }.bind(this));
+        }
+
+    });
+    </script>
+</dom-module>
